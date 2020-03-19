@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { GridsterConfig, GridsterItem } from 'angular-gridster2';
 import { LayoutService } from '../services/layout.service';
+
 @Component({
-selector: 'app-layout',
-templateUrl: './layout.component.html',
-styleUrls: ['./layout.component.scss'],
-providers: [LayoutService]
+  selector: 'app-edit-layout',
+  templateUrl: './edit-layout.component.html',
+  styleUrls: ['./edit-layout.component.scss']
 })
-export class LayoutComponent implements OnInit {
+export class EditLayoutComponent implements OnInit {
 
   get options(): GridsterConfig {
     return this.layoutService.options;
@@ -21,10 +21,8 @@ export class LayoutComponent implements OnInit {
     private layoutService: LayoutService
   ) { }
 
-  dummy = [
-    'test', 'test1', 'test2'
-  ];
-  ngOnInit() {}
+
+  ngOnInit() {
+  }
 
 }
-
