@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { GridsterConfig, GridsterItem } from 'angular-gridster2';
 import { LayoutService } from '../services/layout.service';
+import { ActivatedRoute, Routes, Router} from '@angular/router';
 
 @Component({
   selector: 'app-edit-layout',
@@ -14,11 +15,13 @@ export class EditLayoutComponent implements OnInit {
 
   }
   get layout(): GridsterItem[] {
-    return this.layoutService.layout;
+    return this.layoutService.editLayout;
   }
 
   constructor(
-    private layoutService: LayoutService
+    private layoutService: LayoutService,
+    private router: ActivatedRoute,
+    private route: Router
   ) { }
 
 

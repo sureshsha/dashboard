@@ -2,11 +2,19 @@
   <button (click)="layoutService.addItem()">Add Item</button>
 </div>
 <gridster [options]="options">
-  <gridster-item *ngFor="let item of layout" [item]="item">
+  <gridster-item *ngFor="let item of layout" [item]="item" class="card">
     <button
       (click)="layoutService.deleteItem(item)"
     >
       Delete Item
     </button>
+    <div class="dropdown pull-right">
+      <button class="btn dropdown-toggle" type="button" data-toggle="dropdown"><span class="glyphicon glyphicon-option-vertical"></span></button>
+      <ul class="dropdown-menu">
+        <li><a href="#">Edit</a></li>
+        <li><a href="#">Move</a></li>
+        <li><a href="#">Turn it off</a></li>
+      </ul>
+    </div>
   </gridster-item>
 </gridster>

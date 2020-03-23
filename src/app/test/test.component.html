@@ -1,17 +1,93 @@
-<div gridster="gridsterOptions">
-	<ul>
-		<li gridster-item="widget" ng-repeat="widget in dashboard.widgets">
-			<div class="box" ng-controller="CustomWidgetCtrl">
-				<div class="box-header">
-					<h3>{{ widget.name }}</h3>
-					<div class="box-header-btns pull-right">
-						<a title="settings" ng-click="openSettings(widget)"><i class="glyphicon glyphicon-cog"></i></a>
-						<a title="Remove widget" ng-click="remove(widget)"><i class="glyphicon glyphicon-trash"></i></a>
-					</div>
-				</div>
-				<div class="box-content">
-				</div>
-			</div>
-		</li>
-	</ul>
+<div class="toolbar">
+  <button class="btn pull-right" routerLink = "/edit">Personalize</button>
 </div>
+<gridster [options]="options">
+  <gridster-item *ngFor="let item of layout" [item]="layout[0]" class="{{visibility[0]}}">
+    <div class="dropdown pull-right">
+      <button class="btn dropdown-toggle" type="button" data-toggle="dropdown"><span class="glyphicon glyphicon-option-vertical"></span></button>
+      <ul class="dropdown-menu">
+        <li><a [routerLink]="['/edit']">Edit</a></li>
+        <li><a href="#" (click)="onClickMove()">Move</a></li>
+        <li><a href="#" (click)="remove()">Turn it off</a></li>
+      </ul>
+    </div>
+    <h2>Profile</h2>
+    <div class="card">
+      <img src="img_avatar.png" alt="Avatar" style="width:100%">
+      <div class="container">
+        <h4><b>John Doe</b></h4> 
+        <p>Architect & Engineer</p> 
+      </div>
+    </div>
+  </gridster-item>
+
+  <gridster-item *ngFor="let item of layout" [item]="layout[1]" class="{{visibility[1]}}">
+    .................
+    <div class="dropdown pull-right">
+      <button class="btn dropdown-toggle" type="button" data-toggle="dropdown"><span class="glyphicon glyphicon-option-vertical"></span></button>
+      <ul class="dropdown-menu">
+        <li><a [routerLink]="['/edit']">Edit</a></li>
+        <li><a href="#" (click)="onClickMove()">Move</a></li>
+        <li><a href="#">Turn it off</a></li>
+      </ul>
+    </div>
+  </gridster-item>
+  <gridster-item *ngFor="let item of layout" [item]="layout[2]" class="{{visibility[2]}}">
+    .................
+    <div class="dropdown pull-right">
+      <button class="btn dropdown-toggle" type="button" data-toggle="dropdown"><span class="glyphicon glyphicon-option-vertical"></span></button>
+      <ul class="dropdown-menu">
+        <li><a [routerLink]="['/edit']">Edit</a></li>
+        <li><a href="#" (click)="onClickMove()">Move</a></li>
+        <li><a href="#">Turn it off</a></li>
+      </ul>
+    </div>
+  </gridster-item>
+
+  <gridster-item *ngFor="let item of layout" [item]="layout[3]" class="{{visibility[3]}}">
+    .................
+    <div class="dropdown pull-right">
+      <button class="btn dropdown-toggle" type="button" data-toggle="dropdown"><span class="glyphicon glyphicon-option-vertical"></span></button>
+      <ul class="dropdown-menu">
+        <li><a [routerLink]="['/edit']">Edit</a></li>
+        <li><a href="#" (click)="onClickMove()">Move</a></li>
+        <li><a href="#">Turn it off</a></li>
+      </ul>
+    </div>
+  </gridster-item>
+
+  <gridster-item *ngFor="let item of layout" [item]="layout[4]" class="{{visibility[4]}}">
+    .................
+    <div class="dropdown pull-right">
+      <button class="btn dropdown-toggle" type="button" data-toggle="dropdown"><span class="glyphicon glyphicon-option-vertical"></span></button>
+      <ul class="dropdown-menu">
+        <li><a [routerLink]="['/edit']">Edit</a></li>
+        <li><a href="#" (click)="onClickMove()">Move</a></li>
+        <li><a href="#">Turn it off</a></li>
+      </ul>
+    </div>
+  </gridster-item>
+  <gridster-item *ngFor="let item of layout" [item]="layout[5]" class="{{visibility[5]}}">
+    .................
+    <div class="dropdown pull-right">
+      <button class="btn dropdown-toggle" type="button" data-toggle="dropdown"><span class="glyphicon glyphicon-option-vertical"></span></button>
+      <ul class="dropdown-menu">
+        <li><a [routerLink]="['/edit']">Edit</a></li>
+        <li><a href="#" (click)="onClickMove()">Move</a></li>
+        <li><a href="#">Turn it off</a></li>
+      </ul>
+    </div>
+  </gridster-item>
+
+  <gridster-item *ngFor="let item of layout" [item]="layout[6]" class="{{visibility[6]}}">
+    .................
+    <div class="dropdown pull-right">
+      <button class="btn dropdown-toggle" type="button" data-toggle="dropdown"><span class="glyphicon glyphicon-option-vertical"></span></button>
+      <ul class="dropdown-menu">
+        <li><a [routerLink]="['/edit']">Edit</a></li>
+        <li><a href="#" (click)="onClickMove()">Move</a></li>
+        <li><a href="#">Turn it off</a></li>
+      </ul>
+    </div>
+  </gridster-item>
+</gridster>

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { GridsterConfig, GridsterItem, GridType, CompactType } from 'angular-gridster2';
+import { GridsterConfig, GridsterItem, GridType, CompactType, DisplayGrid } from 'angular-gridster2';
 import { UUID } from 'angular2-uuid';
 @Injectable({
   providedIn: 'root'
@@ -16,22 +16,56 @@ export class LayoutService {
           maxItemRows: 50,
           defaultItemCols: 1,
           defaultItemRows: 1,
-    draggable: {
-      enabled: true
-    },
+          displayGrid: DisplayGrid.None,
+          draggable: {
+            enabled: true,
+            stop: (event, $element, widget) => {
+                console.log($element);
+                // putActivities($element);
+            },
+            dropOverItems: true,
+        },
     pushItems: true,
     resizable: {
-      enabled: true
-    }
+      enabled: false
+    },
+    disableAutoPositionOnConflict: true,
+    allowMultiLayer: true,
+    swap: false,
+      swapWhileDragging: true,
+      maxLayerIndex: 2
   };
-
+// data for the persionalized widgets
   public layout: GridsterItem[] = [
-    { cols: 15, rows: 10, y: 0, x: 0 },
-    { cols: 15, rows: 10, y: 0, x: 2 },
-    { cols: 15, rows: 10, y: 10, x: 0 },
-    { cols: 15, rows: 10, y: 16, x: 16 },
-    { cols: 15, rows: 10, y: 0, x: 0 }
+    { cols: 9, rows: 6, y: 0, x: 1.25 },
+    { cols: 9, rows: 12, y: 0, x: 10.25 },
+    { cols: 9, rows: 12, y: 0, x: 19.25 },
+    { cols: 9, rows: 6, y: 6.1, x: 1.25 },
+     // { cols: 15, rows: 10, y: 0, x: 0 }
+
+     /*{ cols: 9, rows: 6, y: 0, x: 1.25, id: 0 },
+  { cols: 9, rows: 12, y: 0, x: 10.25, id: 1 },
+  { cols: 9, rows: 12, y: 0, x: 19.25, id: 2 },
+  { cols: 9, rows: 6, y: 6.05, x: 1.25, id: 3 },
+  { cols: 9, rows: 12, y: 12.1, x: 1.25, id: 4 },
+  { cols: 9, rows: 6, y: 12.1, x: 10.25, id: 5 },
+  { cols: 9, rows: 6, y: 12.1, x: 19.25, id: 6 }*/ 
 ];
+
+// data for personalizing widgets
+public editLayout: GridsterItem[] = [
+  { cols: 9, rows: 6, y: 0, x: 1.25, id: 0 },
+  { cols: 9, rows: 12, y: 0, x: 10.25, id: 1 },
+  { cols: 9, rows: 12, y: 0, x: 19.25, id: 2 },
+  { cols: 9, rows: 6, y: 6.05, x: 1.25, id: 3 },
+  { cols: 9, rows: 12, y: 12.1, x: 1.25, id: 4 },
+  { cols: 9, rows: 6, y: 12.1, x: 10.25, id: 5 },
+  { cols: 9, rows: 6, y: 12.1, x: 19.25, id: 6 }
+
+];
+
+visibility: string[] = ['show', 'show', 'show', 'show', 'hide', 'hide', 'hide'];
+editVisibility: string[] = []
   constructor() { }
   addItem(): void {
     this.layout.push({
@@ -49,3 +83,5 @@ export class LayoutService {
     this.layout.splice(this.layout.indexOf(item), 1);
   }
 }
+
+

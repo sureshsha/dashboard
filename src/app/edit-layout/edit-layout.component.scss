@@ -2,6 +2,7 @@
     .toolbar {
       height: 100px;
       display: flex;
+      background-color: black;
     }
     gridster {
       display: flex;
@@ -14,3 +15,12 @@
   button {
     height: 30px;
   }
+   /*gridster-item {
+    .hide {
+  // border: solid 0.5 black;
+    background-color:white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    opacity: 0.75%;
+    }
+  }*/

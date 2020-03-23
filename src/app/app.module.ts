@@ -8,6 +8,15 @@ import { LayoutComponent } from './layout/layout.component';
 import { TestComponent } from './test/test.component';
 import { EditLayoutComponent } from './edit-layout/edit-layout.component';
 import { HeaderComponent } from './header/header.component';
+import { LayoutService } from './services/layout.service';
+
+import { Routes, RouterModule } from '@angular/router';
+
+
+const appRoutes: Routes = [
+  { path: '', component: TestComponent},
+  { path: 'edit', component: EditLayoutComponent, }
+];
 
 @NgModule({
   declarations: [
@@ -20,9 +29,10 @@ import { HeaderComponent } from './header/header.component';
   imports: [
     BrowserModule,
     GridsterModule,
-    AngularFontAwesomeModule
+    AngularFontAwesomeModule,
+    RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [LayoutService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
