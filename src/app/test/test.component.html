@@ -1,7 +1,7 @@
 <div class="toolbar">
   <button class="btn pull-right" routerLink = "/edit">Personalize</button>
 </div>
-<gridster [options]="options">
+<gridster [options]="options" style="min-height:100%;">
   <gridster-item *ngFor="let item of layout" [item]="layout[0]" class="{{visibility[0]}}">
     <div class="dropdown pull-right">
       <button class="btn dropdown-toggle" type="button" data-toggle="dropdown"><span class="glyphicon glyphicon-option-vertical"></span></button>
