@@ -1,8 +1,8 @@
 <div class="toolbar">
-  <button class="btn pull-right" routerLink = "/edit">Personalize</button>
+  <button class="btn pull-right" routerLink = "/">Save</button>
 </div>
 <gridster [options]="options">
-  <gridster-item *ngFor="let item of layout" [item]="layout[0]" class="card">
+  <gridster-item *ngFor="let item of layout" [item]="layout[0]"  class="{{visibility[0]}}">
     <div class="dropdown pull-right">
       <button class="btn dropdown-toggle" type="button" data-toggle="dropdown"><span class="glyphicon glyphicon-option-vertical"></span></button>
       <ul class="dropdown-menu">
@@ -21,7 +21,7 @@
     </div>
   </gridster-item>
 
-  <gridster-item *ngFor="let item of layout" [item]="layout[1]" class="card">
+  <gridster-item *ngFor="let item of layout" [item]="layout[1]" class="{{visibility[1]}}">
     .................
     <div class="dropdown pull-right">
       <button class="btn dropdown-toggle" type="button" data-toggle="dropdown"><span class="glyphicon glyphicon-option-vertical"></span></button>
@@ -32,19 +32,7 @@
       </ul>
     </div>
   </gridster-item>
-  <gridster-item *ngFor="let item of layout" [item]="layout[2]" class="card">
-    .................
-    <div class="dropdown pull-right">
-      <button class="btn dropdown-toggle" type="button" data-toggle="dropdown"><span class="glyphicon glyphicon-option-vertical"></span></button>
-      <ul class="dropdown-menu">
-        <li><a [routerLink]="['/edit']">Edit</a></li>
-        <li><a href="#" (click)="onClickMove()">Move</a></li>
-        <li><a href="#">Turn it off</a></li>
-      </ul>
-    </div>
-  </gridster-item>
-
-  <gridster-item *ngFor="let item of layout" [item]="layout[3]" class="card">
+  <gridster-item *ngFor="let item of layout" [item]="layout[2]" class="{{visibility[2]}}">
     .................
     <div class="dropdown pull-right">
       <button class="btn dropdown-toggle" type="button" data-toggle="dropdown"><span class="glyphicon glyphicon-option-vertical"></span></button>
@@ -56,13 +44,25 @@
     </div>
   </gridster-item>
 
-  <gridster-item *ngFor="let item of layout" [item]="layout[4]">
+  <gridster-item *ngFor="let item of layout" [item]="layout[3]" class="{{visibility[3]}}">
+    .................
+    <div class="dropdown pull-right">
+      <button class="btn dropdown-toggle" type="button" data-toggle="dropdown"><span class="glyphicon glyphicon-option-vertical"></span></button>
+      <ul class="dropdown-menu">
+        <li><a [routerLink]="['/edit']">Edit</a></li>
+        <li><a href="#" (click)="onClickMove()">Move</a></li>
+        <li><a href="#">Turn it off</a></li>
+      </ul>
+    </div>
+  </gridster-item>
+
+  <gridster-item *ngFor="let item of layout" [item]="layout[4]"  class="{{visibility[4]}}">
     <div>
      <button class="btn" type="button">Add</button>
     </div>
     
   </gridster-item>
-  <gridster-item *ngFor="let item of layout" [item]="layout[5]">
+  <gridster-item *ngFor="let item of layout" [item]="layout[5]"  class="{{visibility[5]}}">
     .................
     <div class="dropdown pull-right">
       <button class="btn dropdown-toggle" type="button" data-toggle="dropdown"><span class="glyphicon glyphicon-option-vertical"></span></button>
@@ -73,19 +73,22 @@
       </ul>
     </div>
     <div class="center">
-      <button class="btn center" type="button">Add</button>
+      <button class="btn center" type="button" (click)="layoutService.addItem(layout[5].id)">Add</button>
   </div>
   </gridster-item>
 
-  <gridster-item *ngFor="let item of layout" [item]="layout[6]" class="hide">
-    .................
-    <div class="dropdown pull-right">
-      <button class="btn dropdown-toggle" type="button" data-toggle="dropdown"><span class="glyphicon glyphicon-option-vertical"></span></button>
-      <ul class="dropdown-menu">
-        <li><a [routerLink]="['/edit']">Edit</a></li>
-        <li><a href="#" (click)="onClickMove()">Move</a></li>
-        <li><a href="#">Turn it off</a></li>
-      </ul>
+  <gridster-item *ngFor="let item of layout" [item]="layout[6]" class="{{visibility[6]}}">
+    <div class="editView">
+      <div class="dropdown pull-right">
+        <button class="btn dropdown-toggle" type="button" data-toggle="dropdown"><span class="glyphicon glyphicon-option-vertical"></span></button>
+        <ul class="dropdown-menu">
+          <li><a [routerLink]="['/edit']">Edit</a></li>
+          <li><a href="#" (click)="onClickMove()">Move</a></li>
+          <li><a href="#">Turn it off</a></li>
+        </ul>
+      </div>
     </div>
+    .................
+    
   </gridster-item>
 </gridster>

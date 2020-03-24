@@ -8,7 +8,7 @@ import { LayoutService } from '../services/layout.service';
   styleUrls: ['./test.component.scss'],
 })
 export class TestComponent implements OnInit {
-  visibility: string[] = ['show', 'show', 'show', 'show', 'hide', 'hide', 'hide'];
+  visibility: string[];
   idValue;
   id;
   /* get options(): GridsterConfig {
@@ -31,15 +31,11 @@ export class TestComponent implements OnInit {
     return this.options.draggable = {enabled : false};
   }
 
-  /*remove() {
-    this.idValue = this.item;
-    this.id = this.idValue.item.id;
-    console.log(this.idValue);
-  }*/
+
 
   ngOnInit() {
 this.options = this.layoutService.options;
 console.log(this.options.draggable.enabled);
+this.visibility = this.layoutService.visibility;
   }
-  
 }

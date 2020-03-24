@@ -65,9 +65,9 @@ public editLayout: GridsterItem[] = [
 ];
 
 visibility: string[] = ['show', 'show', 'show', 'show', 'hide', 'hide', 'hide'];
-editVisibility: string[] = []
+editVisibility: string[] = ['none', 'none', 'none', 'none', 'show', 'show', 'show']
   constructor() { }
-  addItem(): void {
+  /*addItem(): void {
     this.layout.push({
       cols: 5,
       id: UUID.UUID(),
@@ -78,9 +78,22 @@ editVisibility: string[] = []
     });
     console.log(this.layout);
   }
+  */
   deleteItem(id: string): void {
     const item = this.layout.find(d => d.id === id);
     this.layout.splice(this.layout.indexOf(item), 1);
+  }
+
+  removeItem(id: string): void {
+    this.visibility[id] = 'hide';
+    this.editVisibility[id] = 'show';
+    console.log(id);
+  }
+
+    addItem(id: string): void {
+    this.visibility[id] = 'show';
+    this.editVisibility[id] = 'none';
+    console.log(id);
   }
 }
 

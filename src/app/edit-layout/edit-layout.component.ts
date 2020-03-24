@@ -9,7 +9,7 @@ import { ActivatedRoute, Routes, Router} from '@angular/router';
   styleUrls: ['./edit-layout.component.scss']
 })
 export class EditLayoutComponent implements OnInit {
-
+ visibility: string[];
   get options(): GridsterConfig {
     return this.layoutService.options;
 
@@ -26,6 +26,8 @@ export class EditLayoutComponent implements OnInit {
 
 
   ngOnInit() {
+    this.visibility = this.layoutService.editVisibility;
+
   }
 
 }
